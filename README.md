@@ -1,0 +1,4 @@
+shlib
+=====
+
+bash libs
