@@ -35,8 +35,12 @@ function get_LogsDir() {
 }
 
 function log_FunStart() {
+echo ${BASH_SOURCE[0]}
+echo ${BASH_SOURCE[1]}
+echo ${BASH_SOURCE[2]}
+echo ${BASH_SOURCE[3]}
 	local temp="====================================FUNCTION: "${FUNCNAME[1]}"() Start--<<"
-	log "$temp"
+	#log "$temp"
 }
 
 function log_FunEnd() {

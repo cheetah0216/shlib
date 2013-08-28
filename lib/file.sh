@@ -21,3 +21,5 @@ function get_FileContentByLineNum() {
 	local content=`sed -n $1"p" $2`
 	echo $content
 }
+
+function get_

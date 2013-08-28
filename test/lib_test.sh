@@ -8,14 +8,14 @@ function init() {
 }
 
 function test_log() {
-	log_init "/u1/fliu/Auto_CheckIn/CBS0000001" "PR"
-	log "test:log"
-	log -p "test:log -p"
-	log -m "test:log -m"
-	log -e "test:log -e"
+	#log_init "/u1/fliu/Auto_CheckIn/CBS0000001" "PR"
+	#log "test:log"
+	#log -p "test:log -p"
+	#log -m "test:log -m"
+	#log -e "test:log -e"
 	log_FunStart
-	log_FunEnd
-	get_LogsDir
+	#log_FunEnd
+	#get_LogsDir
 }
 
 function test_cleartool() {
