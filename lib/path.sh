@@ -1,9 +1,16 @@
 #!/bin/bash
 
 function get_FileReadlinkPath() {
-    local source=$1
-    while [[ -f "$source" ]]; do
-      source=`readlink $source`
+    local src=$1
+    while [[ -h "$src" ]]; do
+      src=`readlink $src`
     done
-    echo "$source"
+    echo "$src"
 }
+
+function get_FileDirPath() {
+    local file=$1
+    local dirPath="$( cd "$(dirname "$file")" && pwd )"
+    echo "$dirPath"
+}
+
