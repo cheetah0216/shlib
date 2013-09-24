@@ -1,7 +1,7 @@
 #!/bin/bash
 source $SHLIB/env.sh
 
-function test_get_FileReadlinkPath() {
+function test_get_FileReallinkPath() {
     #Init test data
     cd $SHLIB/test/test_data
     mkdir dir1 dir2 dir3 > /dev/null 2>&1
@@ -10,17 +10,18 @@ function test_get_FileReadlinkPath() {
     cd $oldDir/dir2 && ln -s $oldDir/dir3/file3 file2
     cd $oldDir/dir1 && ln -s $oldDir/dir2/file2 file1
     
-    local real_path=$(get_FileReadlinkPath "$oldDir/dir1/file1")
+    local real_path=$(get_FileReallinkPath "$oldDir/dir1/file1")
     #check result
     if [[ "$real_path" == "$oldDir/dir3/file3" ]]; then
-      echo "path.sh: get_FileReadlinkPath() Successful."
+      echo "path.sh: get_FileReallinkPath() Successful."
     else
-      echo "path.sh: get_FileReadlinkPath() Failed."
+      echo "path.sh: get_FileReallinkPath() Failed."
     fi
 
     #clear
     rm -f $oldDir/dir1/file1
     rm -f $oldDir/dir2/file2 
+    rm -f $oldDir/dir3/file3 
 }
 
 function test_get_FileDirPath() {
@@ -34,7 +35,7 @@ function test_get_FileDirPath() {
 
 function main() {
     test_get_FileDirPath
-    test_get_FileReadlinkPath          
+    test_get_FileReallinkPath          
 }
 
 main

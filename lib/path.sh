@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function get_FileReadlinkPath() {
+function get_FileReallinkPath() {
     local src=$1
     while [[ -h "$src" ]]; do
       src=`readlink $src`
