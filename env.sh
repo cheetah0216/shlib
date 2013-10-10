@@ -5,3 +5,4 @@
 . $SHLIB/lib/file.sh
 . $SHLIB/lib/path.sh
 . $SHLIB/lib/directory.sh
+. $SHLIB/lib/color.sh
