@@ -13,9 +13,9 @@ function test_get_FileReallinkPath() {
     local real_path=$(get_FileReallinkPath "$oldDir/dir1/file1")
     #check result
     if [[ "$real_path" == "$oldDir/dir3/file3" ]]; then
-      color_right "get_FileReallinkPath() Successful."
+      color_succeed "get_FileReallinkPath() Successful."
     else
-      color_error "get_FileReallinkPath() Failed."
+      color_failed "get_FileReallinkPath() Failed."
     fi
 
     #clear
@@ -27,9 +27,9 @@ function test_get_FileReallinkPath() {
 function test_get_FileDirPath() {
     local dirPath="$(get_FileDirPath "${BASH_SOURCE[0]}")" 
     if [[ "$dirPath" == "$SHLIB/test" ]]; then
-      color_right "get_FileDirPath() Successful."
+      color_succeed "get_FileDirPath() Successful."
     else
-      color_error "get_FileDirPath() Failed."
+      color_failed "get_FileDirPath() Failed."
     fi
 }
 

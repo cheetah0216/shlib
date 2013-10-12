@@ -20,9 +20,13 @@ function log() {
 	#log -e: error output to screen and logs.
 
      if [[ $1 == "-p" ]]; then
-       echo "log: $2" && [[ -f $LogsDir ]] && echo "log: $2" >> $LogsDir
+       color_init "white;bold"
+       [[ -f $LogsDir ]] && echo "log: $2" >> $LogsDir && echo "log: $2"
+       color_clear
      elif [[ $1 == "-e" ]]; then
-       echo "log:ERROR: ${2:-"Unknown Error!"}" 1>&2 && [[ -f $LogsDir ]] && echo "log:ERROR: ${2:-"Unknown Error!"}" >> $LogsDir
+       color_init "red;bold"
+       [[ -f $LogsDir ]] && echo "log:ERROR: ${2:-"Unknown Error!"}" >> $LogsDir && echo "log:ERROR: ${2:-"Unknown Error!"}"
+       color_clear
      elif [[ $1 == "-m" && $MORE_LOG == 1 ]]; then
        [[ -f $LogsDir ]] && echo "log: $2" >> $LogsDir
      elif [[ $# == 1 ]]; then
@@ -66,3 +70,4 @@ function create_LogsDir() {
 	create_DirIfNoExists $OutputDir
 	create_FileIfNoExists $LogsDir
 }
+

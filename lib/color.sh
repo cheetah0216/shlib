@@ -69,14 +69,14 @@ function color_clear() {
     tput sgr0
 }
 
-function color_right() {
+function color_succeed() {
     local tmp="[✔ ]"" ""$1""\n"
     color_init "green;bold"
     color "$tmp"
     color_clear
 }
 
-function color_error() {
+function color_failed() {
     local tmp="[✖]"" ""$1""\n"
     color_init "red;bold"
     color "$tmp"

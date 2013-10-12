@@ -1,26 +1,5 @@
 #!/bin/bash
 
-function init() {
-	cd ../lib
-	source log.sh
-	source cleartool.sh
-	source file.sh
-}
-
-function test_log() {
-	log_init "/u1/fliu/Auto_CheckIn/CBS0000001" "PR"
-	log "test:log"
-	log -p "test:log -p"
-	log -m "test:log -m"
-	log -e "test:log -e"
-	log_FunStart
-	log_FunEnd
-	get_LogsDir
-}
-
-function test_cleartool() {
-	get_CheckInListsByPRName "/usr1/arbor/" "DR-4-011-692"
-}
 
 function test_file() {
 	currentDir=`pwd`
@@ -29,10 +8,10 @@ function test_file() {
 }
 
 function main() {
-	init
-	test_log
-	#test_cleartool
-	#test_file
+    cd $SHLIB/test
+    ./color_test.sh
+    ./log_test.sh
+    ./path_test.sh
 }
 
 main
