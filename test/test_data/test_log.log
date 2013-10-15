@@ -1,0 +1,5 @@
+log: test:log
+log: test:log -p
+log:ERROR: test:log -e
+log: ====================================FUNCTION: test_log() Start--<<
+log: ====================================FUNCTION: test_log() End-->>
