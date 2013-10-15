@@ -19,9 +19,9 @@ function test_get_FileReallinkPath() {
     fi
 
     #clear
-    rm -f $oldDir/dir1/file1
-    rm -f $oldDir/dir2/file2 
-    rm -f $oldDir/dir3/file3 
+    rm -rf $oldDir/dir1
+    rm -rf $oldDir/dir2 
+    rm -rf $oldDir/dir3 
 }
 
 function test_get_FileDirPath() {

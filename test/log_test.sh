@@ -6,11 +6,11 @@ function test_log() {
 
     touch test_log_screen.tmp
     log "test:log" >> test_log_screen.tmp
-	log -p "test:log -p" >> test_log_screen.tmp
-	log -m "test:log -m" >> test_log_screen.tmp
-	log -e "test:log -e" >> test_log_screen.tmp
-	log_FunStart >> test_log_screen.tmp 
-	log_FunEnd >> test_log_screen.tmp 
+    log -p "test:log -p" >> test_log_screen.tmp
+    log -m "test:log -m" >> test_log_screen.tmp
+    log -e "test:log -e" >> test_log_screen.tmp
+    log_FunStart >> test_log_screen.tmp 
+    log_FunEnd >> test_log_screen.tmp 
 
     local logDir=$(get_LogsDir)
     local flag1=$(check_TwoFilesSame "$logDir" "test_log.log")
