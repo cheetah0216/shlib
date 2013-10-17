@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function create_FileIfNoExists() {
-	if [[ ! -d $1 ]]; then
+	if [[ ! -f $1 ]]; then
 		touch $1
 	fi
 }
