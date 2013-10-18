@@ -17,9 +17,9 @@ function test_log() {
     local flag2=$(check_TwoFilesSame "test_log.screen" "test_log_screen.tmp")
 
     if [[ $flag1 == "true" && $flag2 == "true" ]]; then
-      color_succeed "test_log Successful."
+      color_succeed "log() Successful."
     else
-      color_failed "test_log Failed."
+      color_failed "log() Failed."
     fi
 
     rm test_log_screen.tmp
@@ -27,7 +27,7 @@ function test_log() {
 
 function main() {
     color_init "purple"
-    color "log.sh: \n"
+    color "log_test.sh: \n"
     color_clear
 
     log_init "/var/shlibLogs/log_test" "test"

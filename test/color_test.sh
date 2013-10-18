@@ -12,9 +12,9 @@ function test_color() {
     create_color_string > test_color.tmp
 
     if [[ $(check_TwoFilesSame "test_color.tmp" "test_color.file") == true ]]; then
-      color_succeed "test_color Successful."
+      color_succeed "color() Successful."
     else
-      color_failed "test_color Failed." 
+      color_failed "color() Failed." 
     fi
 
     rm test_color.tmp
@@ -22,7 +22,7 @@ function test_color() {
 
 function main() {
     echo -en "\033[35m"
-    echo "color.sh"
+    echo "color_test.sh"
     tput sgr0
 
     test_color

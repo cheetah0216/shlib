@@ -7,3 +7,5 @@
 . $SHLIB/lib/file.sh
 . $SHLIB/lib/path.sh
 . $SHLIB/lib/directory.sh
+. $SHLIB/lib/array.sh
+. $SHLIB/lib/string.sh

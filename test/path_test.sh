@@ -35,7 +35,7 @@ function test_get_FileDirPath() {
 
 function main() {
     color_init "purple"
-    color "path.sh: \n"
+    color "path_test.sh: \n"
     color_clear
 
     test_get_FileDirPath
