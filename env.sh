@@ -9,3 +9,4 @@
 . $SHLIB/lib/directory.sh
 . $SHLIB/lib/array.sh
 . $SHLIB/lib/string.sh
+. $SHLIB/lib/arithmetic.sh
