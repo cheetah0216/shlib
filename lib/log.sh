@@ -2,8 +2,6 @@
 
 #global variable:log
 DATE=`date "+%Y-%m-%d-%H%M%S"`
-#OutputDir="$LOG_OUTPUT_DIR""$LOG_FILE_HEAD""_""$PROGRESS_NAME""_""$DATE"
-#LogsDir="$OutputDir""/""$LOG_FILE_HEAD""_""$PROGRESS_NAME""_""$DATE"".log"
 OutputDir=""
 LogsDir=""
 
