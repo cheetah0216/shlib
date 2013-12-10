@@ -17,8 +17,14 @@ function get_FileContentByLineNum() {
 }
 
 function check_TwoFilesSame() {
-    local MD5_1=`md5sum $1 | awk '{ print $1}'`
-    local MD5_2=`md5sum $2 | awk '{ print $1}'` 
+    if [[ $SHLIB_OS_TYPE == "AIX" ]]; then
+      local MD5_1=`csum -h MD5 $1 | awk '{ print $1}'`
+      local MD5_2=`csum -h MD5 $2 | awk '{ print $1}'` 
+    else
+      local MD5_1=`md5sum $1 | awk '{ print $1}'`
+      local MD5_2=`md5sum $2 | awk '{ print $1}'` 
+    fi
+
     if [[ $MD5_1 == $MD5_2 ]]; then
       echo "true"
     else

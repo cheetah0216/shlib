@@ -32,7 +32,7 @@ BASHLIB_BACKGROUND_white="47"
 #color_init "red;&black;bold;underline"
 function color_init() {
     local colorInit=$1
-    local arrInit=(${colorInit//;/ })
+    local arrInit=${colorInit//;/ }
     local tmp=""
     local ret="\033["
 

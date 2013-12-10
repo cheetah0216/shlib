@@ -1,4 +1,8 @@
 #!/bin/bash
+
+OSType=`uname -a | awk '{ print $1}'`
+export SHLIB_OS_TYPE=$OSType
+
 #The first to be applied.
 . $SHLIB/lib/color.sh
 

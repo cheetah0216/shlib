@@ -10,6 +10,8 @@ function create_color_string() {
 function test_color() {
     cd $SHLIB/test/test_data
     create_color_string > test_color.tmp
+    sed '2d' test_color.tmp > tmp.$$
+    mv tmp.$$ test_color.tmp
 
     if [[ $(check_TwoFilesSame "test_color.tmp" "test_color.file") == true ]]; then
       color_succeed "color() Successful."
