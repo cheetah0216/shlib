@@ -19,6 +19,10 @@ function test_get_FileReallinkPath() {
     fi
 
     #clear
+    ###support AIX
+    cd $SHLIB/test/test_data
+    ###
+
     rm -rf $oldDir/dir1
     rm -rf $oldDir/dir2 
     rm -rf $oldDir/dir3 

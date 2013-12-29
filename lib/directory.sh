@@ -5,3 +5,12 @@ function create_DirIfNoExists() {
 		mkdir -p $1
 	fi
 }
+
+function is_DirExists() {
+    local flag="true"
+	if [[ ! -d $1 ]]; then
+		flag="false"
+	fi
+    echo $flag
+}
+
