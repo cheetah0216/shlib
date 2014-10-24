@@ -43,6 +43,28 @@ function test_get_SubstringByIndex() {
     fi
 }
 
+function test_get_Lowercase(){
+    local str="This is a Bash Shell script."
+    local result=$(get_Lowercase "$str")
+
+    if [[ $result == "this is a bash shell script." ]]; then
+      color_succeed "check_Lowercase() Successful."
+    else
+      color_failed "check_Lowercase() Failed."
+    fi 
+}
+
+function test_get_Uppercase(){
+    local str="This is a Bash Shell script."
+    local result=$(get_Uppercase "$str")
+
+    if [[ $result == "THIS IS A BASH SHELL SCRIPT." ]]; then
+      color_succeed "check_Uppercase() Successful."
+    else
+      color_failed "check_Uppercase() Failed."
+    fi 
+}
+
 function main() {
     color_init "purple"
     color "string_test.sh: \n"
@@ -51,6 +73,8 @@ function main() {
     test_get_StrLength
     test_check_ContainSubstring
     test_get_SubstringByIndex    
+    test_get_Lowercase
+    test_get_Uppercase
 }
 
 main    
