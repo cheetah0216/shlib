@@ -1,5 +1,5 @@
 #shlib
-shlib is a simple bash libs with in AIX and Linux platforms. It is include some useful functions,such as log module,terminal color,bash array,files,string,directory etc.  
+shlib is a simple bash libs with in Linux/OSX/AIX platforms. It is include some useful functions,such as log module,terminal color,bash array,files,string,directory etc.  
 
 #How To Start
 git clone https://github.com/cheetah0216/shlib.git /opt/shlib  
