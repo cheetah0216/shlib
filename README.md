@@ -43,6 +43,6 @@ get_FileReallinkPath()
 get_StrLength()   
 check_ContainSubstring()   
 get_SubstringByIndex()   
-get_Lowercase()
+get_Lowercase()  
 get_Uppercase()
 
