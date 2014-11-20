@@ -34,6 +34,7 @@ create_FileIfNoExists()
 get_FileLineNum()   
 get_FileContentByLineNum()   
 check_TwoFilesSame()   
+get_get_LineNumByContent()
 #log.sh: 
 log()   
 #path.sh: 

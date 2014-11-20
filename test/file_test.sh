@@ -61,6 +61,22 @@ function test_check_TwoFilesSame() {
     rm -f file2
 }
 
+function test_get_LineNumByContent() {
+    cd $SHLIB/test/test_data
+    echo "Hello!" > file1
+    echo "World!" >> file1
+    
+    local linenum=$(get_LineNumByContent "Hello" "$SHLIB/test/test_data/file1") 
+
+    if [[ $linenum == "1" ]]; then
+      color_succeed "get_LineNumByContent() Successful."
+    else
+      color_failed "get_LineNumByContent Failed."
+    fi 
+
+    rm -f file1
+}
+
 function main() {
     color_init "purple"
     color "file_test.sh: \n"
@@ -70,6 +86,7 @@ function main() {
     test_get_FileLineNum
     test_get_FileContentByLineNum    
     test_check_TwoFilesSame
+    test_get_LineNumByContent
 }
 
 main    

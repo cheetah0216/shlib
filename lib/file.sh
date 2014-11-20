@@ -32,3 +32,7 @@ function check_TwoFilesSame() {
     fi
 }
 
+function get_LineNumByContent() {
+    local linenum=`sed -n "/$1/=" $2`
+    echo $linenum
+}
