@@ -77,6 +77,98 @@ function test_get_LineNumByContent() {
     rm -f file1
 }
 
+function test_get_FileName() {
+   local filename1="test.cpp"
+   local name1="test"
+   local filename2="/etc/test/test.cpp"
+   local name2="/etc/test/test"
+    
+   local result1=$(get_FileName $filename1)
+   local result2=$(get_FileName $filename2)
+
+   if [[ $result1 == $name1 ]] && [[ $result2 == $name2 ]]; then
+       color_succeed "get_FileName() Successful."
+   else
+       color_failed "get_FileName() Failed."
+   fi 
+
+}
+
+function test_insert_ContentAfterLineNum() {
+    cd $SHLIB/test/test_data
+
+    echo "Hello!" > test_file
+    echo "World!" >> test_file
+
+    echo "Hello!" > result_file
+    echo "Test!" >> result_file
+    echo "World!" >> result_file
+
+    insert_ContentAfterLineNum "1" "Test!" test_file 
+
+    local flag=$(check_TwoFilesSame test_file result_file) 
+    if [[ $flag == "true" ]]; then
+      color_succeed "insert_ContentAfterLineNum Successful."
+    else
+      color_failed "insert_ContentAfterLineNum Failed."
+    fi 
+    
+    rm -f test_file
+    rm -f result_file
+}
+
+function test_insert_ContentBeforeLineNum() {
+    cd $SHLIB/test/test_data
+
+    echo "Hello!" > test_file
+    echo "World!" >> test_file
+
+    echo "Hello!" > result_file
+    echo "Test!" >> result_file
+    echo "World!" >> result_file
+
+    insert_ContentBeforeLineNum "2" "Test!" test_file 
+    
+    local flag=$(check_TwoFilesSame test_file result_file) 
+    if [[ $flag == "true" ]]; then
+      color_succeed "insert_ContentBeforeLineNum Successful."
+    else
+      color_failed "insert_ContentBeforeLineNum Failed."
+    fi 
+    
+    rm -f test_file
+    rm -f result_file
+}
+
+function test_insert_FileInLineNum() {
+    cd $SHLIB/test/test_data
+
+    echo "Hello!" > test_file
+    echo "World!" >> test_file
+
+    echo "insert!" > insert_file
+    echo "file!" >> insert_file
+
+    create_FileIfNoExists "result_file"
+    echo "Hello!" > result_file
+    echo "insert!" >> result_file
+    echo "file!" >> result_file
+    echo "World!" >> result_file
+
+    insert_FileInLineNum "1" insert_file test_file 
+    
+    local flag=$(check_TwoFilesSame test_file result_file) 
+    if [[ $flag == "true" ]]; then
+      color_succeed "insert_FileInLineNum Successful."
+    else
+      color_failed "insert_FileInLineNum Failed."
+    fi 
+    
+    rm -f test_file
+    rm -f insert_file
+    rm -f result_file
+}
+
 function main() {
     color_init "purple"
     color "file_test.sh: \n"
@@ -87,6 +179,10 @@ function main() {
     test_get_FileContentByLineNum    
     test_check_TwoFilesSame
     test_get_LineNumByContent
+    test_get_FileName
+    test_insert_ContentAfterLineNum
+    test_insert_ContentBeforeLineNum
+    test_insert_FileInLineNum
 }
 
 main    

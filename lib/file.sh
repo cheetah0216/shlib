@@ -36,3 +36,30 @@ function get_LineNumByContent() {
     local linenum=`sed -n "/$1/=" $2`
     echo $linenum
 }
+
+function get_FileName() {
+    local filename=$1
+    local name=${filename%%.*}
+    echo $name
+}
+
+function insert_ContentAfterLineNum() {
+    local linenum=$1
+    local content=$2
+    local file=$3
+    sed -i "$linenum a\\$content" $file
+}
+
+function insert_ContentBeforeLineNum() {
+    local linenum=$1
+    local content=$2
+    local file=$3
+    sed -i "$linenum i\\$content" $file
+}
+
+function insert_FileInLineNum() {
+    local linenum=$1
+    local contentfile=$2
+    local file=$3
+    sed -i "$linenum r $contentfile" $file
+} 
