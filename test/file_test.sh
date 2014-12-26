@@ -169,6 +169,31 @@ function test_insert_FileInLineNum() {
     rm -f result_file
 }
 
+function test_update_ReplaceFileContent() {
+    cd $SHLIB/test/test_data
+
+    echo "ptr->get-conf()->get_db()" > test_file
+    echo "hello!" >> test_file
+
+    echo "ptr->get-conf()-->get_db(test)" > result_file
+    echo "hello!" >> result_file
+
+    local target="->get_db()"
+    local new="-->get_db(test)"
+
+    update_ReplaceFileContent $target $new test_file
+    
+    local flag=$(check_TwoFilesSame test_file result_file) 
+    if [[ $flag == "true" ]]; then
+      color_succeed "update_ReplaceFileContent Successful."
+    else
+      color_failed "update_ReplaceFileContent Failed."
+    fi 
+    
+    rm -f test_file
+    rm -f result_file
+}
+
 function main() {
     color_init "purple"
     color "file_test.sh: \n"
@@ -183,6 +208,7 @@ function main() {
     test_insert_ContentAfterLineNum
     test_insert_ContentBeforeLineNum
     test_insert_FileInLineNum
+    test_update_ReplaceFileContent
 }
 
 main    
