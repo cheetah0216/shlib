@@ -63,3 +63,10 @@ function insert_FileInLineNum() {
     local file=$3
     sed -i "$linenum r $contentfile" $file
 } 
+
+function update_ReplaceFileContent() {
+    local target=$1
+    local new=$2
+    local file=$3
+    sed -i "s/$1/$2/g" $file
+}
