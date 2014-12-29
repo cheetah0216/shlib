@@ -175,13 +175,16 @@ function test_update_ReplaceFileContent() {
     echo "ptr->get-conf()->get_db()" > test_file
     echo "hello!" >> test_file
 
-    echo "ptr->get-conf()-->get_db(\"test\")" > result_file
+    echo "ptr->get-conf()-->get_db(_head.id(),\"profile\")" > result_file
     echo "hello!" >> result_file
 
     local target="->get_db()"
-    local new="-->get_db(\"test\")"
+    local new="-->get_db(_head.id(),\"profile\")"
 
+    cat test_file
+    cat result_file
     update_ReplaceFileContent $target $new test_file
+    cat test_file
     
     local flag=$(check_TwoFilesSame test_file result_file) 
     if [[ $flag == "true" ]]; then
