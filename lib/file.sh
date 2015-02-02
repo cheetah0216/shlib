@@ -65,8 +65,8 @@ function insert_FileInLineNum() {
 } 
 
 function update_ReplaceFileContent() {
-    local target=$1
-    local new=$2
-    local file=$3
+    local target="$1"
+    local new="$2"
+    local file="$3"
     sed -i "s/$1/$2/g" $file
 }

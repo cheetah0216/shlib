@@ -46,8 +46,18 @@ function test_get_SubstringByIndex() {
 function test_get_Lowercase(){
     local str="This is a Bash Shell script."
     local result=$(get_Lowercase "$str")
-
+    local flag="false"
     if [[ $result == "this is a bash shell script." ]]; then
+        flag="true"
+    fi
+
+    str="this is a bash shell script."
+    local result=$(get_Lowercase "$str")
+    if [[ $result == "this is a bash shell script." ]]; then
+        flag="true"
+    fi
+
+    if [[ $flag == "true" ]]; then
       color_succeed "check_Lowercase() Successful."
     else
       color_failed "check_Lowercase() Failed."

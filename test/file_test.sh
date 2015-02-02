@@ -146,12 +146,12 @@ function test_insert_FileInLineNum() {
     echo "Hello!" > test_file
     echo "World!" >> test_file
 
-    echo "insert!" > insert_file
+    echo "in sert!" > insert_file
     echo "file!" >> insert_file
 
     create_FileIfNoExists "result_file"
     echo "Hello!" > result_file
-    echo "insert!" >> result_file
+    echo "in sert!" >> result_file
     echo "file!" >> result_file
     echo "World!" >> result_file
 
@@ -175,17 +175,17 @@ function test_update_ReplaceFileContent() {
     echo "ptr->get-conf()->get_db()" > test_file
     echo "hello!" >> test_file
 
-    echo "ptr->get-conf()-->get_db(_head.id(),\"profile\")" > result_file
+    echo "ptr->get-conf()-->get_db(_head.id(), \"profile\")" > result_file
     echo "hello!" >> result_file
 
     local target="->get_db()"
-    local new="-->get_db(_head.id(),\"profile\")"
+    #local new='-->get_db(_head.id(),profile)'
+    oldIFS=$IFS
+    IFS="^"
+    local new="-->get_db(_head.id(), \"profile\")"
+    update_ReplaceFileContent ${target} ${new} test_file
+    IFS=$oldIFS
 
-    cat test_file
-    cat result_file
-    update_ReplaceFileContent $target $new test_file
-    cat test_file
-    
     local flag=$(check_TwoFilesSame test_file result_file) 
     if [[ $flag == "true" ]]; then
       color_succeed "update_ReplaceFileContent Successful."
