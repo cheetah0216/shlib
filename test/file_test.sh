@@ -45,6 +45,25 @@ function test_get_FileContentByLineNum() {
     rm -f tmp
 }
 
+function test_get_FileContentByLineRange() {
+    cd $SHLIB/test/test_data
+    echo "Hello!" > tmp
+    echo "World!" >> tmp
+    echo "Test!" >> tmp
+    echo "File!" >> tmp
+
+    local text=$(get_FileContentByLineRange "2" "3" "tmp")
+    local result="World! Test!"
+
+    if [[ ${text} == ${result} ]]; then
+      color_succeed "get_FileContentByLineRange() Successful."
+    else
+      color_failed "get_FileContentByLineRange() Failed."
+    fi
+    
+    rm -f tmp
+}
+
 function test_check_TwoFilesSame() {
     cd $SHLIB/test/test_data
     echo "Hello!" > file1
@@ -205,6 +224,7 @@ function main() {
     test_create_FileIfNoExists
     test_get_FileLineNum
     test_get_FileContentByLineNum    
+    test_get_FileContentByLineRange   
     test_check_TwoFilesSame
     test_get_LineNumByContent
     test_get_FileName

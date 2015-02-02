@@ -16,6 +16,14 @@ function get_FileContentByLineNum() {
 	echo $content
 }
 
+function get_FileContentByLineRange() {
+    local startline=$1
+    local endline=$2
+    local file=$3
+    local content=`sed -n "${startline},${endline}p" $file`
+    echo $content
+}
+
 function check_TwoFilesSame() {
     if [[ $SHLIB_OS_TYPE == "AIX" ]]; then
       local MD5_1=`csum -h MD5 $1 | awk '{ print $1}'`
