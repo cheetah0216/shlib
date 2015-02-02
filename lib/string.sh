@@ -37,11 +37,6 @@ function get_Lowercase(){
     #declare -l lowercase=$1
     #echo "$lowercase"
     local lowercase=`tr '[A-Z]' '[a-z]' <<<"$1"`
-
-    if [[ $lowercase == "" ]]; then
-        lowercase=$1
-    fi
-
     echo "$lowercase"
 }
 
